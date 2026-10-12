@@ -27,13 +27,13 @@ export const Route = createFileRoute("/agent/applications/$appId")({
 
 function AgentAppDetail() {
   const { appId } = Route.useParams();
-  const { db, me, act } = useStore();
-  const app = db.applications.find((a) => a.id === appId && a.agentId === me?.id);
+  const { db, act } = useStore();
+  const app = db.applications.find((a) => a.id === appId);
 
   if (!app)
     return (
       <DashboardLayout nav={agentNav} title="Application">
-        <Empty>ไม่พบใบสมัครนี้ หรือไม่ใช่ใบสมัครที่คุณดูแล</Empty>
+        <Empty>ไม่พบใบสมัครนี้</Empty>
       </DashboardLayout>
     );
 

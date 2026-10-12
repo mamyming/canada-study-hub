@@ -17,7 +17,7 @@ export function useScopedApps(role: Role) {
   const { db, me } = useStore();
   if (!me) return [];
   if (role === "student") return db.applications.filter((a) => a.studentId === me.id);
-  if (role === "agent") return db.applications.filter((a) => a.agentId === me.id);
+  if (role === "agent") return db.applications;
   return db.applications.filter((a) => !!a.collegeId);
 }
 
